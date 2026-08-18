@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.xverum/mcp",
+  "title": "Xverum — search & enrich professional profiles by role, skills, title & location",
+  "description": "Source candidates and build sales lead lists of decision-makers; enrich with full work history.",
+  "version": "1.0.0",
+  "websiteUrl": "https://xverum.com",
+  "repository": {
+    "url": "https://github.com/xverum/xverum-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "Xverum API key — create one in your Xverum dashboard under Settings → API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
