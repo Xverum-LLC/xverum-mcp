@@ -25,10 +25,11 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 
 ## Tools
 
-| Tool | What it does |
-|------|--------------|
-| `xverum_search_people` | Find people matching a natural-language description — candidates, prospects, or decision-makers. Returns ranked profiles. |
-| `xverum_get_profile` | Pull the full profile for one person by id: work history, seniority, and background. |
+| Tool | What it does | Cost |
+|------|--------------|------|
+| `search_people_xverum` | Find people matching a natural-language description  – candidates, prospects, or decision-makers. Returns ranked profiles. | 1/result |
+| `enrich_person_xverum` | Pull the full profile for one person by id: work history, education, and seniority. | 4 |
+| `predict_job_change_xverum` | Score how likely a person is to change roles  – before they declare it. Refreshed weekly. | 10 |
 
 Full reference: [docs/tools.md](docs/tools.md).
 
