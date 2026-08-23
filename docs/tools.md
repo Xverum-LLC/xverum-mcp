@@ -4,7 +4,7 @@ The server exposes exactly two tools. Both are read-only.
 
 ---
 
-## `xverum_search_people`
+## `search_people_xverum`
 
 Find people matching a natural-language description — candidates, prospects, or
 decision-makers. Returns ranked professional profiles.
@@ -34,34 +34,55 @@ Each result: `id`, `social_url`, `full_name`, `headline`, `location`, `company_n
 ### Example
 
 ```
-xverum_search_people("senior ML engineer in Berlin with PyTorch experience", page_size=5)
+search_people_xverum("senior ML engineer in Berlin with PyTorch experience", page_size=5)
 ```
 
 ```json
 {
-  "results": [
-    {
-      "id": "482910371",
-      "social_url": "https://<public-profile-url>/anna-mueller-ml",
-      "full_name": "Anna Müller",
-      "headline": "Senior ML Engineer at DeepMind",
-      "location": "Berlin, Germany",
-      "company_name": "DeepMind",
-      "position": "Senior ML Engineer",
-      "industry": "artificial intelligence"
-    }
-  ],
-  "total_count": 38,
-  "page": 1,
-  "page_size": 5,
-  "tokens_charged": 1,
-  "request_id": "9f1c2a7e6b3d4f08"
-}
+    "results": [
+      {
+        "id": “111111”111,
+        "social_url": "https://es.linkedin.com/in/john-doe,
+        "full_name": “John Doe",
+        "headline": "Software Engineer",
+        "location": "Madrid, Community of Madrid, Spain",
+        "company_name": "Capgemini Engineering",
+        "position": "Software Engineer",
+        "industry": "Engineering Services"
+      },
+      {
+        "id": “22222222”,
+        "social_url": "https://linkedin.com/in/john-doe1”,                                             
+        "full_name": “John Doe1”,
+        "headline": "Software Engineer",
+        "location": "Madrid, Spain",
+        "company_name": "Spotify",
+        "position": "Software Engineer",
+        "industry": null
+      },                                                                                                 
+      {
+        "id": “333333333”,
+        "social_url": "https://linkedin.com/in/john-doe2”,
+        "full_name": “John Doe2”,
+        "headline": "software engineer",
+        "location": "madrid, spain",
+        "company_name": "synopsys",
+        "position": "r & d software engineer",
+        "industry": null
+      }                                                                                                  
+    ],
+    "total_count": 10000,
+    "page": 1,
+    "page_size": 3,
+    "credits_used": 40,
+    "credits_remaining": 789,                                                                                
+    "request_id": "228c5661d5b94dec"
+  }
 ```
 
 ---
 
-## `xverum_get_profile`
+## `enrich_person_xverum`
 
 Pull the full details on one person — to qualify a candidate or prospect, or draft
 outreach.
@@ -96,35 +117,54 @@ Each `experience` item: `position`, `company_name`, `start_time`, `end_time`,
 ### Example
 
 ```
-xverum_get_profile("482910371", detail="full")
+enrich_person_xverum("482910371", detail="full")
 ```
 
 ```json
 {
-  "social_url": "https://<public-profile-url>/anna-mueller-ml",
-  "full_name": "Anna Müller",
-  "headline": "Senior ML Engineer",
-  "location": "Berlin, Germany",
-  "company_name": "DeepMind",
-  "position": "Senior ML Engineer",
-  "industry": "artificial intelligence",
-  "experience": [
-    {
-      "position": "Senior ML Engineer",
-      "company_name": "DeepMind",
-      "start_time": "Mar 2022",
-      "end_time": null,
-      "duration": "3 yrs 2 mos",
-      "location": "Berlin, Germany",
-      "job_description": "Developing and deploying large-scale recommendation models.",
-      "industry": "artificial intelligence"
-    }
-  ],
-  "about_me": "Building production ML systems at scale.",
-  "seniority": "senior",
-  "tokens_charged": 8,
-  "request_id": "1a2b3c4d5e6f7081"
-}
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"social_url\":\"https://linkedin.com/in/ameem-shaik\",\"full_name\":\"john-doe\",\"headline\":\"Software Engineer\",\"location\":\"Raleigh-Durham-Chapel 
+  Hill Area, United States\",\"company_name\”:\”Sailor\”,\”position\":\"Senior Software Engineer\",\"industry\":null,\"experience\":[{\"position\":\"Senior Software 
+  Engineer\",\"company_name\”:\”Sailor\”,\”start_time\":\"Nov 2022\",\"end_time\":\"Present\",\"duration\":\"3 years 5 
+  months\",\"location\":\"Remote\",\"job_description\":\"\",\"industry\":null}],\"about_me\":\"Passionate software engineer that enjoys collaborating with others to solve 
+  important and interesting problems.\",\"seniority\":\"mid_ic\",\"credits_used\":0,\"credits_remaining\":787,\"request_id\":\"ec70b707ed9e4542\"}"
+        }
+      ],
+      "structuredContent": {
+        "social_url": "https://linkedin.com/in/ameem-shaik",
+        "full_name": “John Doe",
+        "headline": "Software Engineer",                                                                 
+        "location": "Raleigh-Durham-Chapel Hill Area, United States",                                    
+        "company_name": “Sailor”,
+        "position": "Senior Software Engineer",
+        "industry": null,
+        "experience": [
+          {
+            "position": "Senior Software Engineer",
+            "company_name": “Sailor”,                                                               
+            "start_time": "Nov 2022",
+            "end_time": "Present",
+            "duration": "3 years 5 months",
+            "location": "Remote",
+            "job_description": "",
+            "industry": null
+          }
+        ],                                                                                               
+        "about_me": "Passionate software engineer that enjoys collaborating with others to solve important and interesting problems.",
+        "seniority": "mid_ic",
+        "credits_used": 0,
+        "credits_remaining": 787,
+        "request_id": "ec70b707ed9e4542"
+      },
+      "isError": false
+    }                                                                                                    
+  }
+
 ```
 
 ---
