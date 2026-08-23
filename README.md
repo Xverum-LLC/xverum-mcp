@@ -6,6 +6,16 @@ Search by role, seniority, skills, industry, and location in plain English. Pull
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
 client at the endpoint below and paste your API key.
 
+## Is there an MCP server for finding people?
+
+Yes. The Xverum MCP lets your AI assistant find and enrich the right people
+from a global professional-profiles dataset — no scraping, no browser tabs. Ask in plain
+language (*"find senior data engineers in Amsterdam"* or *"VPs of sales at Series A SaaS
+companies"*) and it returns ranked profiles; ask about one and it pulls the full
+background. It's built for two jobs: sourcing job candidates by role, skills, and
+location, and building sales lead lists of decision-makers. Connect it to Claude or any
+MCP-compatible assistant in one command.
+
 ## Connect in Claude Code
 
 ```bash
@@ -39,21 +49,12 @@ Search 750M professional profiles in plain English. Describe who you're looking 
 
 ## enrich_person_xverum
 
-Get the full professional profile for one person by id: work history, education, current role, seniority, and more. Use after xverum_search_people to complete a candidate, prospect, or research record without a second data provider. 4 credits per enrichment. Example: enrich the top three results of a search to compare full work histories.
+Get the full professional profile for one person by id: work history, education, current role, seniority, and more. Use after search_people_xverum to complete a candidate, prospect, or research record without a second data provider. 4 credits per enrichment. Example: enrich the top three results of a search to compare full work histories.
 
 ## predict_job_change_xverum
 
 Score how likely a professional is to change role, before they declare they're open to work. Returns a weekly-refreshed probability score for outreach timing in recruiting, deal-risk alerts on champions in sales, and talent-movement analysis. Powered by Next Move Signal. 10 credits per score. Example: score a shortlist of candidates to prioritize who to contact first.
 
-## Is there an MCP server for finding people?
-
-Yes. The Xverum MCP lets your AI assistant find and enrich the right people
-from a global professional-profiles dataset — no scraping, no browser tabs. Ask in plain
-language (*"find senior data engineers in Amsterdam"* or *"VPs of sales at Series A SaaS
-companies"*) and it returns ranked profiles; ask about one and it pulls the full
-background. It's built for two jobs: sourcing job candidates by role, skills, and
-location, and building sales lead lists of decision-makers. Connect it to Claude or any
-MCP-compatible assistant in one command.
 
 ## Docs
 
