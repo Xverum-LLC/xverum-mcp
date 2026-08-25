@@ -41,7 +41,7 @@ search_people_xverum("senior ML engineer in Berlin with PyTorch experience", pag
 {
     "results": [
       {
-        "id": “111111”111,
+        "id": “111111111",
         "social_url": "https://es.linkedin.com/in/john-doe,
         "full_name": “John Doe",
         "headline": "Software Engineer",
@@ -74,7 +74,7 @@ search_people_xverum("senior ML engineer in Berlin with PyTorch experience", pag
     "total_count": 10000,
     "page": 1,
     "page_size": 3,
-    "credits_used": 40,
+    "credits_used": 3,
     "credits_remaining": 789,                                                                                
     "request_id": "228c5661d5b94dec"
   }
@@ -91,8 +91,8 @@ outreach.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `id` | string | yes | — | Numeric profile id from a `xverum_search_people` result |
-| `detail` | string | no | `basic` | `basic`, or `full` to add `experience`, `about_me`, `seniority` |
+| `id` | string | yes | — | Numeric profile id from a `enrich_person_xverum` result |
+| `detail` | string | no | `full` to add `experience`, `about_me`, `seniority` |
 
 ### Returns
 
@@ -157,7 +157,7 @@ enrich_person_xverum("482910371", detail="full")
         ],                                                                                               
         "about_me": "Passionate software engineer that enjoys collaborating with others to solve important and interesting problems.",
         "seniority": "mid_ic",
-        "credits_used": 0,
+        "credits_used": 8,
         "credits_remaining": 787,
         "request_id": "ec70b707ed9e4542"
       },
