@@ -1,7 +1,7 @@
 # Xverum — MCP Server
 
 Find and enrich the right people from 750M professional profiles. 
-Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description,work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
+Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
 client at the endpoint below and paste your API key.
