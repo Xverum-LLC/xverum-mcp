@@ -1,7 +1,7 @@
 # Xverum — MCP Server
 
 Find and enrich the right people from 750M professional profiles. 
-Search by role, seniority, skills, industry, and location in plain English. Pull profiles with work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
+Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description,work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
 client at the endpoint below and paste your API key.
@@ -49,7 +49,7 @@ Search 750M professional profiles in plain English. Describe who you're looking 
 
 ## enrich_person_xverum
 
-Get the full professional profile for one person by id: work history, education, current role, seniority, and more. Use after search_people_xverum to complete a candidate, prospect, or research record without a second data provider. 4 credits per enrichment. Example: enrich the top three results of a search to compare full work histories.
+Get the full professional profile for one person by id: description, work history, education, current role, and seniority. Use after search_people_xverum to complete a candidate, prospect, or research record without a second data provider. 4 credits per enrichment. Example: enrich the top three results of a search to compare full work histories.
 
 ## predict_job_change_xverum
 
