@@ -1,6 +1,9 @@
 # Xverum — MCP Server
 
-Find and enrich the right people from 750M professional profiles. 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blueviolet)
+
+Find and enrich the right people from 750M professional profiles.
 Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
@@ -16,15 +19,90 @@ background. It's built for two jobs: sourcing job candidates by role, skills, an
 location, and building sales lead lists of decision-makers. Connect it to Claude or any
 MCP-compatible assistant in one command.
 
-## Connect in Claude Code
+## Prerequisites
+
+A [Xverum](https://xverum.com) account with an API key. Create one at [xverum.com](https://xverum.com) → **Settings → API Keys**.
+
+## Connect your client
+
+<details>
+<summary><b>Claude Code</b></summary>
 
 ```bash
 claude mcp add --transport http xverum https://mcp.xverum.com/mcp \
   --header "x-api-key: YOUR_API_KEY"
 ```
 
-Paste the key from your [xverum.com](https://xverum.com) dashboard → Settings → API
-Keys. That's it — then just ask: *"find senior React engineers in Berlin"*.
+Verify with `/mcp` — you should see `xverum` with three tools.
+
+</details>
+
+<details>
+<summary><b>Cursor</b></summary>
+
+Add to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Visual Studio Code</b></summary>
+
+Add to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Any other MCP client</b></summary>
+
+Most clients take a JSON config of this shape:
+
+```json
+{
+  "mcpServers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+Consult your client's docs for where that file lives. Clients that only support OAuth
+(ChatGPT, Claude.ai) are not supported yet — see
+[docs/authentication.md](docs/authentication.md).
+
+</details>
 
 Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 
@@ -43,18 +121,29 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 
 Full reference: [docs/tools.md](docs/tools.md).
 
-## search_people_xverum
+## Example prompts
 
-Search 750M professional profiles in plain English. Describe who you're looking for – role, seniority, location, experience  – and get a ranked list of matching people: candidates for recruiting and talent sourcing, prospects and decision-makers for sales, or professionals for market research. Covers 220 countries and territories. Returns ranked profile summaries with person ids. 1 credit per result. Example: "senior backend engineers in Berlin with fintech experience."
+```
+"Find senior React engineers in Berlin"
+```
+```
+"VPs of sales at Series A SaaS companies"
+```
+```
+"Who are the heads of data at mid-size retailers?"
+```
+```
+"Score a shortlist of candidates to prioritize who to contact first"
+```
+```
+"Tell me more about the second one" / "Pull the full profile for that candidate"
+```
 
-## enrich_person_xverum
+## Credits
 
-Get the full professional profile for one person by id: description, work history, education, current role, and seniority. Use after search_people_xverum to complete a candidate, prospect, or research record without a second data provider. 4 credits per enrichment. Example: enrich the top three results of a search to compare full work histories.
-
-## predict_job_change_xverum
-
-Score how likely a professional is to change role, before they declare they're open to work. Returns a weekly-refreshed probability score for outreach timing in recruiting, deal-risk alerts on champions in sales, and talent-movement analysis. Powered by Next Move Signal. 10 credits per score. Example: score a shortlist of candidates to prioritize who to contact first.
-
+1 credit per search result · 4 credits per full profile · 10 credits per job-change score.
+Each response reports `credits_used` and `credits_remaining`.
+Manage credits in your [dashboard](https://xverum.com).
 
 ## Docs
 
@@ -67,9 +156,15 @@ Score how likely a professional is to change role, before they declare they're o
 
 - Your API key is sent per request and is **never stored** by the MCP gateway — it is a
   stateless passthrough to the Xverum API.
-- The server exposes exactly the two tools listed above. It cannot write, delete, or take
+- The server exposes exactly the three tools listed above. It cannot write, delete, or take
   any action on your behalf.
 - Profile data comes from Xverum's licensed professional-profiles dataset.
+
+## Links
+
+- [Xverum](https://xverum.com) — website
+- [Dashboard](https://xverum.com) → Settings → API Keys
+- [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
 
 ## Support
 
