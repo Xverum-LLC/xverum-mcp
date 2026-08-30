@@ -1,10 +1,10 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.xverum/mcp",
-  "title": "Xverum — search & enrich professional profiles by role, skills, title & location",
+  "title": "Ask Xverum — search & enrich professional profiles by role, skills, title & location",
   "description": "Source candidates and build sales lead lists of decision-makers; enrich with full work history.",
   "version": "1.0.0",
-  "websiteUrl": "https://xverum.com",
+  "websiteUrl": "https://ask.xverum.com",
   "repository": {
     "url": "https://github.com/Xverum-LLC/xverum-mcp",
     "source": "github"
