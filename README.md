@@ -145,7 +145,7 @@ Full reference: [docs/tools.md](docs/tools.md).
 
 1 credit per search result · 4 credits per full profile · 10 credits per job-change score.
 Each response reports `credits_used` and `credits_remaining`.
-Manage credits in your [dashboard](https://xverum.com).
+
 
 ## Docs
 
@@ -164,7 +164,7 @@ Manage credits in your [dashboard](https://xverum.com).
 
 ## Links
 
-- [Xverum](https://xverum.com) — website
+- [Xverum](https://ask.xverum.com/) — website
 - [Dashboard](https://xverum.com) → Settings → API Keys
 <!-- TODO: uncomment once XV-6709 registers the namespace
 - [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
