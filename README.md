@@ -118,7 +118,7 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 | Tool | What it does | Cost |
 |------|--------------|------|
 | `search_people_xverum` | Find people matching a natural-language description  – candidates, prospects, or decision-makers. Returns ranked profiles. | 1 credit per result |
-| `enrich_person_xverum` | Pull the full profile for one person by id: work history, education, and seniority. | 4 credits per full profile |
+| `enrich_person_xverum` | Pull the full profile for one person by id: description, work history, education, and seniority. | 4 credits per full profile |
 | `predict_job_change_xverum` | Score how likely a person is to change roles  – before they declare it. Refreshed weekly. | 10 credits per score |
 
 Full reference: [docs/tools.md](docs/tools.md).
