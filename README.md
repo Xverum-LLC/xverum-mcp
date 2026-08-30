@@ -104,7 +104,9 @@ Consult your client's docs for where that file lives. Clients that only support 
 
 </details>
 
+<!-- TODO: uncomment once XV-6709 registers the namespace
 Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
+-->
 
 > **Note on authentication.** Today the server uses a per-request API key, which works in
 > Claude Code, Cline, Cursor, and any client that lets you set a header. OAuth is in
@@ -164,7 +166,9 @@ Manage credits in your [dashboard](https://xverum.com).
 
 - [Xverum](https://xverum.com) — website
 - [Dashboard](https://xverum.com) → Settings → API Keys
+<!-- TODO: uncomment once XV-6709 registers the namespace
 - [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
+-->
 
 ## Support
 
