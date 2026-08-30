@@ -4,6 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blueviolet)
+![Claude Ready](https://img.shields.io/badge/Claude-Ready-orange)
+![OpenAI Compatible](https://img.shields.io/badge/OpenAI-Compatible-lightgrey)
 ![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green)
 ![CCPA Compliant](https://img.shields.io/badge/CCPA-Compliant-green)
 
@@ -113,22 +115,21 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 
 Full reference: [docs/tools.md](docs/tools.md).
 
-## Example prompts
+### Examples
 
+**Example 1: Talent Sourcing**
 ```
-"Find senior React engineers in Berlin"
+Find senior React engineers in Berlin with fintech experience
 ```
+
+**Example 2: Sales Prospecting**
 ```
-"VPs of sales at Series A SaaS companies"
+VPs of sales at Series A SaaS companies
 ```
+
+**Example 3: Market Research**
 ```
-"Who are the heads of data at mid-size retailers?"
-```
-```
-"Score a shortlist of candidates to prioritize who to contact first"
-```
-```
-"Tell me more about the second one" / "Pull the full profile for that candidate"
+Who are the heads of data at mid-size retailers?
 ```
 
 ## Credits
