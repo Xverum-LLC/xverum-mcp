@@ -21,7 +21,7 @@ MCP-compatible assistant in one command.
 
 ## Prerequisites
 
-A [Xverum](https://ask.xverum.com/) account with an API key. Create one at [xverum.com](https://xverum.com) → **Settings → API Keys**.
+A [ask Xverum](https://ask.xverum.com/) account with an API key. Create one at [xverum.com](https://xverum.com) → **Settings → API Keys**.
 
 ## Connect your client
 
