@@ -164,7 +164,7 @@ Each response reports `credits_used` and `credits_remaining`.
 
 ## Links
 
-- [Xverum](https://ask.xverum.com/) — website
+- [Ask Xverum](https://ask.xverum.com/) — website
 - [Dashboard](https://myaccount.xverum.com/dashboard)
 <!-- TODO: uncomment once XV-6709 registers the namespace
 - [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
