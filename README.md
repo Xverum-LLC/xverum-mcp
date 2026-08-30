@@ -21,7 +21,7 @@ MCP-compatible assistant in one command.
 
 ## Prerequisites
 
-A [Ask Xverum](https://ask.xverum.com/) account with an API key. Create one at [xverum.com](https://xverum.com) → **Settings → API Keys**.
+A [Ask Xverum](https://ask.xverum.com/) account with an API key. Create one at [xverum.com](https://myaccount.xverum.com/dashboard).
 
 ## Connect your client
 
@@ -165,7 +165,7 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Links
 
 - [Xverum](https://ask.xverum.com/) — website
-- [Dashboard](https://xverum.com) → Settings → API Keys
+- [Dashboard](https://myaccount.xverum.com/dashboard)
 <!-- TODO: uncomment once XV-6709 registers the namespace
 - [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
 -->
@@ -173,4 +173,4 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Support
 
 Questions or issues: open an issue on this repo, or contact us via
-[xverum.com](https://xverum.com).
+[xverum.com](agentic.support@xverum.com).
