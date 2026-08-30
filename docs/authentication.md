@@ -22,7 +22,7 @@ which validates it. Rotating or revoking a key in the dashboard takes effect imm
 ### Which clients this works with
 
 Any client that lets you set a request header on a remote MCP server: **Claude Code**,
-**Cline**, **Cursor**, **Continue**, and most others.
+**Cline**, **Cursor**, **VS Code**, and most others.
 
 It does **not** work with clients that only support OAuth for remote servers — notably
 **ChatGPT** and **Claude.ai**. Those are unblocked by the OAuth work below.

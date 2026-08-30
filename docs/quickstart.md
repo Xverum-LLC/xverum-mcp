@@ -17,9 +17,45 @@ claude mcp add --transport http xverum https://mcp.xverum.com/mcp \
   --header "x-api-key: YOUR_API_KEY"
 ```
 
-Verify with `/mcp` — you should see `xverum` with two tools.
+Verify with `/mcp` — you should see `xverum` with three tools.
 
-### Any client that accepts a remote MCP server
+### Cursor
+
+Add to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+### Visual Studio Code
+
+Add to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+### Any other MCP client
 
 Most clients take a JSON config of this shape:
 
@@ -55,11 +91,16 @@ Then drill into any result:
 - *"Tell me more about the second one."*
 - *"Pull the full profile for that candidate."*
 
+Or predict who's likely to move:
+
+- *"Score these candidates — who's most likely to change jobs?"*
+
 ## What it costs
 
-Calls draw down your account's token balance: **1 token per search result**, and **2
-(basic) or 8 (full) tokens per profile fetch**. Each response reports
-`tokens_charged` so your assistant can tell you what a query cost.
+Calls draw down your account's credit balance: **1 credit per search result**,
+**4 credits per full profile enrichment**, and **10 credits per job-change
+prediction score**. Each response reports `credits_used` and
+`credits_remaining` so your assistant can tell you what a query cost.
 
 ## Next
 
