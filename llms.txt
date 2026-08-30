@@ -8,7 +8,7 @@ Xverum provides a hosted MCP server that lets AI assistants search 750M professi
 
 - Endpoint: https://mcp.xverum.com/mcp
 - Transport: streamable-http
-- Authentication: x-api-key header (create at https://xverum.com → Settings → API Keys)
+- Authentication: OAuth (sign in via browser on first connection)
 - Registry name: com.xverum/mcp
 
 ## Tools
@@ -31,17 +31,14 @@ Parameters: id (string, required).
 ## Connect
 
 Claude Code:
-claude mcp add --transport http xverum https://mcp.xverum.com/mcp --header "x-api-key: YOUR_API_KEY"
+claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 
 JSON config (Cursor, VS Code, other clients):
 {
   "mcpServers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }

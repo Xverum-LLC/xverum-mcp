@@ -1,51 +1,41 @@
 # Authentication
 
-## Today: API key
+## OAuth
 
-The server authenticates each request with an `x-api-key` header carrying your Xverum
-API key. Create one at [xverum.com](https://xverum.com) → **Settings → API Keys**.
+The server authenticates via OAuth. On first connection your client opens a browser
+window to sign in to your Xverum account — no API keys to paste or store.
 
 ```bash
-claude mcp add --transport http xverum https://mcp.xverum.com/mcp \
-  --header "x-api-key: YOUR_API_KEY"
+claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 ```
 
-The key identifies your account: it resolves your token balance, your rate limit, and
-your entitlements. Treat it as a secret — anyone holding it can spend your tokens.
+Your identity resolves your credit balance, your rate limit, and your entitlements.
 
-### What we store
+### How it works
 
-The MCP gateway is a **stateless passthrough**. It holds no session, no database, and no
-copy of your key — the key travels on each request and is forwarded to the Xverum API,
-which validates it. Rotating or revoking a key in the dashboard takes effect immediately.
+1. Your MCP client connects to `https://mcp.xverum.com/mcp`.
+2. The server responds with a `401` and `WWW-Authenticate: Bearer` challenge.
+3. Your client opens a browser window for you to sign in.
+4. Once signed in, subsequent requests are authenticated automatically.
 
 ### Which clients this works with
 
-Any client that lets you set a request header on a remote MCP server: **Claude Code**,
-**Cline**, **Cursor**, **VS Code**, and most others.
+Any MCP client that supports OAuth for remote servers: **Claude Code**, **Claude.ai**,
+**ChatGPT**, **Cursor**, **VS Code**, **Cline**, and most others.
 
-It does **not** work with clients that only support OAuth for remote servers — notably
-**ChatGPT** and **Claude.ai**. Those are unblocked by the OAuth work below.
+### What we store
 
-## Coming: OAuth
-
-OAuth support is in progress. When it ships:
-
-- You'll connect by signing in, instead of pasting a key.
-- Clients that require OAuth (ChatGPT, Claude.ai) will work.
-- The API-key path keeps working — it is not being removed.
-
-OAuth connects an **existing** Xverum account. It does not create one; sign up at
-[xverum.com](https://xverum.com) first, and sign in with the same email your account
-uses.
+The MCP gateway holds no copy of your credentials. OAuth tokens are managed by the
+identity provider and validated on each request. Revoking access in your dashboard
+takes effect immediately.
 
 ## Errors
 
 | Error | Meaning |
 |-------|---------|
-| `invalid_api_key` | Key missing, malformed, or revoked. Re-check the header. |
+| `invalid_api_key` | Credential missing, malformed, or revoked. Re-authenticate. |
 | `account_not_authorized` | The account exists but isn't entitled to this API. |
-| `insufficient_tokens` | Out of tokens — top up in the dashboard. |
+| `insufficient_tokens` | Out of credits — top up in the dashboard. |
 | `rate_limited` | Over 60 req/min. Back off; the response carries `Retry-After`. |
 
 Full list: [troubleshooting.md](troubleshooting.md).

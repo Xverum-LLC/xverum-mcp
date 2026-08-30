@@ -11,7 +11,7 @@ Find and enrich the right people from 750M professional profiles.
 Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
-client at the endpoint below and paste your API key.
+client at the endpoint below and sign in with OAuth.
 
 ## Is there an MCP server for finding people?
 
@@ -25,7 +25,7 @@ MCP-compatible assistant in one command.
 
 ## Prerequisites
 
-A [Ask Xverum](https://ask.xverum.com/) account with an API key. Create one at [xverum.com](https://myaccount.xverum.com/dashboard).
+An [Ask Xverum](https://ask.xverum.com/) account. Sign up at [xverum.com](https://myaccount.xverum.com/dashboard).
 
 ## Connect your client
 
@@ -33,8 +33,7 @@ A [Ask Xverum](https://ask.xverum.com/) account with an API key. Create one at [
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add --transport http xverum https://mcp.xverum.com/mcp \
-  --header "x-api-key: YOUR_API_KEY"
+claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 ```
 
 Verify with `/mcp` — you should see `xverum` with three tools.
@@ -51,10 +50,7 @@ Add to `~/.cursor/mcp.json`:
   "mcpServers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
@@ -72,10 +68,7 @@ Add to `.vscode/mcp.json`:
   "servers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
@@ -93,18 +86,13 @@ Most clients take a JSON config of this shape:
   "mcpServers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
 ```
 
-Consult your client's docs for where that file lives. Clients that only support OAuth
-(ChatGPT, Claude.ai) are not supported yet — see
-[docs/authentication.md](docs/authentication.md).
+Consult your client's docs for where that file lives.
 
 </details>
 
@@ -112,10 +100,8 @@ Consult your client's docs for where that file lives. Clients that only support 
 Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 -->
 
-> **Note on authentication.** Today the server uses a per-request API key, which works in
-> Claude Code, Cline, Cursor, and any client that lets you set a header. OAuth is in
-> progress and will remove the key-pasting step (and add support for clients that only
-> accept OAuth, such as ChatGPT and Claude.ai). See [docs/authentication.md](docs/authentication.md).
+> **Authentication.** The server uses OAuth — on first connection your client opens a
+> browser window to sign in. No API keys to paste. See [docs/authentication.md](docs/authentication.md).
 
 ## Tools
 
@@ -160,8 +146,7 @@ Each response reports `credits_used` and `credits_remaining`.
 
 ## Privacy & security
 
-- Your API key is sent per request and is **never stored** by the MCP gateway — it is a
-  stateless passthrough to the Xverum API.
+- Authentication is handled via OAuth — no API keys are stored or transmitted in config files.
 - The server exposes exactly the three tools listed above. It cannot write, delete, or take
   any action on your behalf.
 - Profile data comes from Xverum's licensed professional-profiles dataset.

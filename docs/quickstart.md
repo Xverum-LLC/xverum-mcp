@@ -2,19 +2,17 @@
 
 Connect the Xverum People Search MCP server and run your first search in about a minute.
 
-## 1. Get an API key
+## 1. Get an account
 
-Sign in at [xverum.com](https://xverum.com) → **Settings → API Keys** → create a key.
-You need an existing Xverum account; the MCP server connects an account, it does not
-create one.
+Sign up at [Ask Xverum](https://ask.xverum.com/). You need an existing Xverum account;
+the MCP server connects an account, it does not create one.
 
 ## 2. Connect your client
 
 ### Claude Code
 
 ```bash
-claude mcp add --transport http xverum https://mcp.xverum.com/mcp \
-  --header "x-api-key: YOUR_API_KEY"
+claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 ```
 
 Verify with `/mcp` — you should see `xverum` with three tools.
@@ -28,10 +26,7 @@ Add to `~/.cursor/mcp.json`:
   "mcpServers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
@@ -46,10 +41,7 @@ Add to `.vscode/mcp.json`:
   "servers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
@@ -64,18 +56,13 @@ Most clients take a JSON config of this shape:
   "mcpServers": {
     "xverum": {
       "type": "http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": {
-        "x-api-key": "YOUR_API_KEY"
-      }
+      "url": "https://mcp.xverum.com/mcp"
     }
   }
 }
 ```
 
-Consult your client's docs for where that file lives. Clients that only support OAuth
-(ChatGPT, Claude.ai) are not supported yet — see
-[authentication.md](authentication.md).
+Consult your client's docs for where that file lives.
 
 ## 3. Ask for people
 

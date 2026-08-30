@@ -12,15 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.xverum.com/mcp",
-      "headers": [
-        {
-          "name": "x-api-key",
-          "description": "Xverum API key — create one in your Xverum dashboard under Settings → API Keys.",
-          "isRequired": true,
-          "isSecret": true
-        }
-      ]
+      "url": "https://mcp.xverum.com/mcp"
     }
   ]
 }
