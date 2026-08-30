@@ -27,7 +27,7 @@ MCP-compatible assistant in one command.
 
 ## Prerequisites
 
-An [Ask Xverum](https://ask.xverum.com/) account. Sign up at [xverum.com](https://myaccount.xverum.com/dashboard).
+Sign up at [Ask Xverum](https://ask.xverum.com/).
 
 ## Connect your client
 
