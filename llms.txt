@@ -1,0 +1,62 @@
+# Xverum
+
+> People search, professional profile enrichment, and job-change prediction for AI agents.
+
+Xverum provides a hosted MCP server that lets AI assistants search 750M professional profiles, enrich individual records with full work history and education, and predict which professionals are likely to change jobs next. Built for recruiting, talent sourcing, sales prospecting, lead generation, and market research.
+
+## MCP Server
+
+- Endpoint: https://mcp.xverum.com/mcp
+- Transport: streamable-http
+- Authentication: x-api-key header (create at https://xverum.com → Settings → API Keys)
+- Registry name: com.xverum/mcp
+
+## Tools
+
+### search_people_xverum
+Search 750M professional profiles in plain English. Describe who you're looking for by role, seniority, skills, industry, location, or company and get a ranked list of matching people. Use cases: recruiting and talent sourcing, sales prospecting, lead list building, market research, account mapping. Coverage: 220 countries and territories. Cost: 1 credit per result.
+
+Parameters: query (string, required), page (integer, optional), page_size (integer, optional, 1-100).
+
+### enrich_person_xverum
+Get the full professional profile for one person by id: description, work history, education, current role, and seniority. Use after search_people_xverum to complete a candidate, prospect, or research record. Cost: 4 credits per enrichment.
+
+Parameters: id (string, required).
+
+### predict_job_change_xverum
+Score how likely a professional is to change roles before they declare they are open to work. Returns a weekly-refreshed probability score. Use cases: outreach timing in recruiting, deal-risk alerts on champions in sales, talent-movement analysis. Powered by Next Move Signal. Cost: 10 credits per score.
+
+Parameters: id (string, required).
+
+## Connect
+
+Claude Code:
+claude mcp add --transport http xverum https://mcp.xverum.com/mcp --header "x-api-key: YOUR_API_KEY"
+
+JSON config (Cursor, VS Code, other clients):
+{
+  "mcpServers": {
+    "xverum": {
+      "type": "http",
+      "url": "https://mcp.xverum.com/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+
+## Credits
+
+- search_people_xverum: 1 credit per result
+- enrich_person_xverum: 4 credits per profile
+- predict_job_change_xverum: 10 credits per score
+- Every response includes credits_used and credits_remaining
+
+## Links
+
+- Website: https://xverum.com
+- Quickstart: https://github.com/Xverum-LLC/xverum-mcp/blob/main/docs/quickstart.md
+- Tools reference: https://github.com/Xverum-LLC/xverum-mcp/blob/main/docs/tools.md
+- Authentication: https://github.com/Xverum-LLC/xverum-mcp/blob/main/docs/authentication.md
+- MCP Registry: com.xverum/mcp
