@@ -4,6 +4,11 @@
 
 # Xverum — MCP Server
 
+<p align="center">
+  <a href="https://cursor.com/en/install-mcp?name=xverum&config=eyJ1cmwiOiJodHRwczovL21jcC54dmVydW0uY29tL21jcCJ9"><img src="https://custom-icon-badges.demolab.com/badge/Install_in_Cursor-000000?style=for-the-badge&logo=cursor-ai-white" alt="Install in Cursor" /></a>
+  <a href="https://vscode.dev/redirect/mcp/install?name=xverum&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A//mcp.xverum.com/mcp%22%7D"><img src="https://custom-icon-badges.demolab.com/badge/Install_in_VS_Code-007ACC?style=for-the-badge&logo=vsc&logoColor=white" alt="Install in VS Code" /></a>
+</p>
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blueviolet)
 ![Claude Ready](https://img.shields.io/badge/Claude-Ready-orange)
