@@ -1,4 +1,4 @@
-<img src="xverum.png" alt="Xverum" width="400">
+<img src="xverum.png" alt="Xverum" width="725" height="135">
 
 # Xverum — MCP Server
 
