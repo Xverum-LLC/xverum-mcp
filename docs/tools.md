@@ -74,7 +74,7 @@ search_people_xverum("senior ML engineer in Berlin with PyTorch experience", pag
 ## `enrich_person_xverum`
 
 Get the full profile for one person returned by `search_people_xverum` —
-employment history, background/about information, and seniority.
+ description, work history, education, and seniority.
 
 ### Parameters
 
