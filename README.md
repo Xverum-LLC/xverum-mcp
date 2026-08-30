@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blueviolet)
+![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green)
+![CCPA Compliant](https://img.shields.io/badge/CCPA-Compliant-green)
 
 Find and enrich the right people from 750M professional profiles.
 Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
@@ -173,4 +175,4 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Support
 
 Questions or issues: open an issue on this repo, or contact us via
-[xverum.com](agentic.support@xverum.com).
+[agentic.support@xverum.com](mailto:agentic.support@xverum.com).
