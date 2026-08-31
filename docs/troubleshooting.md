@@ -26,7 +26,7 @@ Errors your assistant should stop on:
 | Error | What to do |
 |-------|------------|
 | `invalid_api_key` | Key missing, malformed, or revoked. Re-add the server with a current key. |
-| `insufficient_tokens` | Out of tokens — top up in the dashboard. |
+| `out_of_credits` | Out of tokens — top up in the dashboard. |
 | `account_not_authorized` | Account isn't entitled to this API — contact us. |
 | `rate_limited` | Over the per-key limit. Back off for the `Retry-After` interval. |
 | `upstream_unavailable` / `search_unavailable` / `auth_unavailable` | Temporary service issue. Retry with backoff. |
