@@ -3,7 +3,7 @@
   "name": "com.xverum/mcp",
   "title": "Ask Xverum — search & enrich professional profiles by role, skills, seniority & location",
   "description": "Find and enrich the right people from 750M professional profiles.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://ask.xverum.com",
   "repository": {
     "url": "https://github.com/Xverum-LLC/xverum-mcp",
