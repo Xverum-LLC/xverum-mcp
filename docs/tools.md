@@ -74,7 +74,7 @@ search_people_xverum("senior ML engineer in Berlin with PyTorch experience", pag
 ## `enrich_person_xverum`
 
 Get the full profile for one person returned by `search_people_xverum` —
- description, work history, education, and seniority.
+employment history, education history, background/about information, and seniority.
 
 ### Parameters
 
@@ -95,6 +95,7 @@ Get the full profile for one person returned by `search_people_xverum` —
 | `industry` | string \| null | Industry |
 | `evidence_summary` | string | Profile freshness, from `Verified last 30 days` to `Verified over 120 days ago` |
 | `experience` | array | Full employment history |
+| `education` | array | Full education history |
 | `about_me` | string \| null | Profile summary |
 | `seniority` | string \| null | Current-role seniority |
 | `credits_used` | integer | Credits deducted (4) |
@@ -103,6 +104,9 @@ Get the full profile for one person returned by `search_people_xverum` —
 
 Each `experience` item: `position`, `company_name`, `start_time`, `end_time`,
 `duration`, `location`, `job_description`, `industry`.
+
+Each `education` item: `social_url`, `institution_name`, `start_time`, `end_time`,
+`description` (all nullable strings) plus `degree` (a list of strings, `[]` if none).
 
 ### Example
 
@@ -130,6 +134,16 @@ enrich_person_xverum("482910371")
       "location": "Berlin, Germany",
       "job_description": "Developing and deploying large-scale recommendation models.",
       "industry": "artificial intelligence"
+    }
+  ],
+  "education": [
+    {
+      "social_url": "https://linkedin.com/school/tu-berlin",
+      "institution_name": "TU Berlin",
+      "degree": ["MSc Computer Science"],
+      "start_time": "2015",
+      "end_time": "2017",
+      "description": null
     }
   ],
   "about_me": "Building production ML systems at scale.",
