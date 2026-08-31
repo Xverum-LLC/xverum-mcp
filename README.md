@@ -122,19 +122,14 @@ Full reference: [docs/tools.md](docs/tools.md).
 
 ### Examples
 
-**Example 1: Talent Sourcing**
+**Example 1: Search people** (`search_people_xverum`)
 ```
 Find senior React engineers in Berlin with fintech experience
 ```
 
-**Example 2: Sales Prospecting**
+**Example 2: Enrich a profile** (`enrich_person_xverum`)
 ```
-VPs of sales at Series A SaaS companies
-```
-
-**Example 3: Market Research**
-```
-Who are the heads of data at mid-size retailers?
+enrich_person_xverum("482910371")
 ```
 
 ## Credits
