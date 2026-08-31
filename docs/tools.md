@@ -1,6 +1,6 @@
 # Tools reference
 
-The server exposes exactly two tools. Both are read-only.
+The server exposes exactly three tools. All are read-only.
 
 ---
 
@@ -151,6 +151,47 @@ enrich_person_xverum("482910371")
   "credits_used": 4,
   "credits_remaining": 4995,
   "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+---
+
+## `predict_job_change_xverum`
+
+Score how likely a professional is to change roles — before they declare they are
+open to work. Returns a weekly-refreshed probability score. Use cases: outreach
+timing in recruiting, deal-risk alerts on champions in sales, and talent-movement
+analysis. Powered by Next Move Signal. 10 credits per score.
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | yes | — | Numeric profile id from a `search_people_xverum` result |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Profile id |
+| `score` | number | Job-change probability score |
+| `credits_used` | integer | Credits deducted (10) |
+| `credits_remaining` | integer | Credits remaining after this call |
+| `request_id` | string | Correlation id |
+
+### Example
+
+```
+predict_job_change_xverum("482910371")
+```
+
+```json
+{
+  "id": "482910371",
+  "score": 0.73,
+  "credits_used": 10,
+  "credits_remaining": 4985,
+  "request_id": "a1b2c3d4e5f60789"
 }
 ```
 

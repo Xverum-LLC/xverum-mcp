@@ -4,8 +4,8 @@
 
 | Symptom | Likely cause |
 |---------|--------------|
-| Client shows the server but no tools | Connection succeeded but auth failed — check the `x-api-key` header is set and the key is current. |
-| `401` on connect | No credential on the request. The server rejects credential-less sessions. |
+| Client shows the server but no tools | Connection succeeded but auth failed — complete the OAuth sign-in. |
+| `401` on connect | No credential on the request. Sign in via the OAuth browser prompt. |
 | Client can't add the server at all | Client may not support remote (streamable-HTTP) MCP servers, or may require OAuth — see [authentication.md](authentication.md). |
 
 Endpoint is `https://mcp.xverum.com/mcp` — note the `/mcp` path.
@@ -25,8 +25,8 @@ Errors your assistant should stop on:
 
 | Error | What to do |
 |-------|------------|
-| `invalid_api_key` | Key missing, malformed, or revoked. Re-add the server with a current key. |
-| `out_of_credits` | Out of tokens — top up in the dashboard. |
+| `invalid_api_key` | Credential missing, malformed, or revoked. Re-authenticate. |
+| `out_of_credits` | Out of credits — top up in the dashboard. |
 | `account_not_authorized` | Account isn't entitled to this API — contact us. |
 | `rate_limited` | Over the per-key limit. Back off for the `Retry-After` interval. |
 | `upstream_unavailable` / `search_unavailable` / `auth_unavailable` | Temporary service issue. Retry with backoff. |

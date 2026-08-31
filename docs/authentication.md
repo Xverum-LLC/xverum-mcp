@@ -35,7 +35,7 @@ takes effect immediately.
 |-------|---------|
 | `invalid_api_key` | Credential missing, malformed, or revoked. Re-authenticate. |
 | `account_not_authorized` | The account exists but isn't entitled to this API. |
-| `insufficient_tokens` | Out of credits — top up in the dashboard. |
+| `out_of_credits` | Out of credits — top up in the dashboard. |
 | `rate_limited` | Over 60 req/min. Back off; the response carries `Retry-After`. |
 
 Full list: [troubleshooting.md](troubleshooting.md).

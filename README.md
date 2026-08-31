@@ -149,7 +149,7 @@ Each response reports `credits_used` and `credits_remaining`.
 
 - [Quickstart](docs/quickstart.md) — connect and run your first search.
 - [Tools](docs/tools.md) — parameters, return shapes, and worked examples.
-- [Authentication](docs/authentication.md) — API keys, what we store, and the OAuth roadmap.
+- [Authentication](docs/authentication.md) — OAuth sign-in and what we store.
 - [Troubleshooting](docs/troubleshooting.md) — error codes and what to do about them.
 
 ## Privacy & security
