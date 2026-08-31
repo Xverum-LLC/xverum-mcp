@@ -105,9 +105,7 @@ Consult your client's docs for where that file lives.
 
 </details>
 
-<!-- TODO: uncomment once XV-6709 registers the namespace
 Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
--->
 
 > **Authentication.** The server uses OAuth — on first connection your client opens a
 > browser window to sign in. No API keys to paste. See [docs/authentication.md](docs/authentication.md).
@@ -162,9 +160,7 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Links
 
 - [Ask Xverum](https://ask.xverum.com/) — website
-<!-- TODO: uncomment once XV-6709 registers the namespace
 - [MCP Registry](https://registry.modelcontextprotocol.io) — `com.xverum/mcp`
--->
 
 ## Support
 
