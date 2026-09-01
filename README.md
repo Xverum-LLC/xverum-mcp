@@ -136,7 +136,7 @@ Get profile id 401241903
 
 1 credit per search result · 4 credits per full profile · 10 credits per job-change score.
 Each response reports `credits_used` and `credits_remaining`.
-[See plans and pricing](https://stage-semantic.xverum.xyz/pricing)
+[See plans and pricing](https://ask.xverum.com/pricing)
 
 
 ## Docs
