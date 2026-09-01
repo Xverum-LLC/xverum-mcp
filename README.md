@@ -162,3 +162,5 @@ Each response reports `credits_used` and `credits_remaining`.
 
 Questions or issues: open an issue on this repo, or contact us via
 [agentic.support@xverum.com](mailto:agentic.support@xverum.com).
+
+[![smithery badge](https://smithery.ai/badge/xverum/xverum-mcp)](https://smithery.ai/servers/xverum/xverum-mcp)
