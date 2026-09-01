@@ -129,7 +129,7 @@ Senior Python developers with Kubernetes in Seattle
 
 **Example 2: Enrich a profile** (`enrich_person_xverum`)
 ```
-enrich_person_xverum("401241903")
+Get profile id 401241903
 ```
 
 ## Credits
