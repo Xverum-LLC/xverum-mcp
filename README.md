@@ -124,7 +124,7 @@ Full reference: [docs/tools.md](docs/tools.md).
 
 **Example 1: Search people** (`search_people_xverum`)
 ```
-Find senior React engineers in Berlin with fintech experience
+Senior Python developers with Kubernetes in Seattle
 ```
 
 **Example 2: Enrich a profile** (`enrich_person_xverum`)
