@@ -38,12 +38,12 @@ Sign up at [Ask Xverum](https://ask.xverum.com/).
 
 ## Connect your client
 
-<details>
-<summary><b>Claude Code</b></summary>
-
 ```bash
 claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 ```
+
+<details>
+<summary><b>Claude Code — verify</b></summary>
 
 Verify with `/mcp` — you should see `xverum` with three tools.
 
