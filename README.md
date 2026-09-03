@@ -28,7 +28,7 @@ Yes. The Xverum MCP lets your AI assistant find and enrich the right people
 from a global professional-profiles dataset — no scraping, no browser tabs. Ask in plain
 language (*"find senior data engineers in Amsterdam"* or *"VPs of sales at Series A SaaS
 companies"*) and it returns ranked profiles; ask about one and it pulls the full
-background. It's built for two jobs: sourcing job candidates by role, skills,  and
+background. It's built for two jobs: sourcing job candidates by role, skills, and
 location, and building sales lead lists of decision-makers. Connect it to Claude or any
 MCP-compatible assistant in one command.
 
