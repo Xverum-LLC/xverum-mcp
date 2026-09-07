@@ -16,7 +16,7 @@
 ![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green)
 ![CCPA Compliant](https://img.shields.io/badge/CCPA-Compliant-green)
 
-Find and enrich the right people from 750M professional profiles.
+Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.
 Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
 This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
