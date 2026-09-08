@@ -26,7 +26,8 @@ Errors your assistant should stop on:
 | Error | What to do |
 |-------|------------|
 | `invalid_api_key` | Credential missing, malformed, or revoked. Re-authenticate. |
-| `out_of_credits` | Out of credits — top up in the dashboard. |
+| `out_of_credits` | Out of credits — the error includes `credits_remaining: 0` and an upgrade link. |
+| `usage_paused` | Usage paused at the plan limit — follow the approve-extra-usage or upgrade link in the error text. |
 | `account_not_authorized` | Account isn't entitled to this API — contact us. |
 | `rate_limited` | Over the per-key limit. Back off for the `Retry-After` interval. |
 | `upstream_unavailable` / `search_unavailable` / `auth_unavailable` | Temporary service issue. Retry with backoff. |

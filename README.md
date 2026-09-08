@@ -16,30 +16,11 @@
 ![GDPR Compliant](https://img.shields.io/badge/GDPR-Compliant-green)
 ![CCPA Compliant](https://img.shields.io/badge/CCPA-Compliant-green)
 
-## What it does
+Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.
+Search by role, seniority, skills, industry, and location in plain English. Pull profiles with description, work history, education, and seniority, then see who's likely to change jobs next with Next Move Signal. Built for AI products and agents: sourcing candidates, building lead lists, and mapping markets and accounts.
 
-Find and enrich people from 750M professional profiles — search by role, seniority,
-skills, industry, and location in plain English, then pull full work history,
-education, and Next Move Signal job-change scores.
-
-## Who it's for
-
-Recruiters and sourcers building candidate pipelines, and sales teams building
-lead lists of decision-makers — via any MCP-compatible AI assistant.
-
-## Quickstart
-
-```bash
-npx xverum-mcp
-```
-
-This launches a local stdio MCP proxy that connects to the hosted Xverum server —
-your browser will open once for OAuth sign-in. For clients with native remote-HTTP
-support, see the direct connection option below instead.
-
-This is a hosted, remote MCP server. Most clients can connect directly (see below);
-clients that only support stdio can install the [`xverum-mcp`](https://www.npmjs.com/package/xverum-mcp)
-npm wrapper instead — see Quickstart above.
+This is a **hosted, remote MCP server** — there is nothing to install or run. Point your
+client at the endpoint below and sign in with OAuth.
 
 ## Is there an MCP server for finding people?
 
@@ -101,20 +82,7 @@ Add to `.vscode/mcp.json`:
   }
 }
 ```
-### Stdio clients (npx)
 
-For clients that don't support remote HTTP MCP servers natively:
-
-```json
-{
-  "mcpServers": {
-    "xverum": {
-      "command": "npx",
-      "args": ["-y", "xverum-mcp"]
-    }
-  }
-}
-```
 </details>
 
 <details>

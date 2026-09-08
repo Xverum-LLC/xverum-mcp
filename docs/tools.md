@@ -31,6 +31,7 @@ returned result costs 1 credit.
 | `credits_used` | integer | Credits deducted (1 per result) |
 | `credits_remaining` | integer | Credits remaining after this call |
 | `request_id` | string | Correlation id — quote this in support requests |
+| `usage_notice` | object \| null | Account credit-usage notice `{ message, approve_url, upgrade_url }` when lifecycle messaging is enabled and the account is near or at its plan limit; shown at most once per billing cycle |
 
 Each result: `id`, `social_url`, `full_name`, `headline`, `location`, `company_name`,
 `position`, `industry`, `evidence_summary`.
@@ -101,6 +102,7 @@ employment history, education history, background/about information, and seniori
 | `credits_used` | integer | Credits deducted (4) |
 | `credits_remaining` | integer | Credits remaining after this call |
 | `request_id` | string | Correlation id |
+| `usage_notice` | object \| null | Account credit-usage notice `{ message, approve_url, upgrade_url }` when lifecycle messaging is enabled and the account is near or at its plan limit; shown at most once per billing cycle |
 
 Each `experience` item: `position`, `company_name`, `start_time`, `end_time`,
 `duration`, `location`, `job_description`, `industry`.

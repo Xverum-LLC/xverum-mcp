@@ -35,7 +35,8 @@ takes effect immediately.
 |-------|---------|
 | `invalid_api_key` | Credential missing, malformed, or revoked. Re-authenticate. |
 | `account_not_authorized` | The account exists but isn't entitled to this API. |
-| `out_of_credits` | Out of credits — top up in the dashboard. |
+| `out_of_credits` | Out of credits — the error includes `credits_remaining: 0` and an upgrade link. |
+| `usage_paused` | Usage paused at the plan limit — follow the approve-extra-usage or upgrade link in the error text. |
 | `rate_limited` | Over 60 req/min. Back off; the response carries `Retry-After`. |
 
 Full list: [troubleshooting.md](troubleshooting.md).
