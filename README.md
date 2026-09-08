@@ -82,7 +82,20 @@ Add to `.vscode/mcp.json`:
   }
 }
 ```
+### Stdio clients (npx)
 
+For clients that don't support remote HTTP MCP servers natively:
+
+```json
+{
+  "mcpServers": {
+    "xverum": {
+      "command": "npx",
+      "args": ["-y", "xverum-mcp"]
+    }
+  }
+}
+```
 </details>
 
 <details>

@@ -1,0 +1,31 @@
+{
+  "name": "xverum-mcp",
+  "version": "1.0.0",
+  "description": "Stdio MCP proxy for the hosted Xverum MCP server (people search & enrichment, 750M profiles)",
+  "type": "module",
+  "bin": {
+    "xverum-mcp": "bin/xverum-mcp.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "xverum",
+    "people-search",
+    "enrichment"
+  ],
+  "license": "MIT",
+  "homepage": "https://ask.xverum.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xverum-LLC/xverum-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xverum-LLC/xverum-mcp/issues"
+  }
+}
