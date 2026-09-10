@@ -1,6 +1,6 @@
 {
-  "name": "xverum-mcp",
-  "version": "1.0.2",
+  "name": "@xverum/mcp",
+  "version": "1.0.1",
   "mcpName": "com.xverum/mcp",
   "description": "Stdio MCP proxy for the hosted Xverum MCP server (people search & enrichment, 750M profiles)",
   "type": "module",
@@ -19,15 +19,15 @@
     "xverum",
     "people-search",
     "enrichment",
-"profile-enrichment",
-  "lead-generation",
-  "candidate-sourcing",
-  "sales-intelligence",
-  "recruiting",
-  "ai-agent"		
+    "profile-enrichment",
+    "lead-generation",
+    "candidate-sourcing",
+    "sales-intelligence",
+    "recruiting",
+    "ai-agent"		
   ],
   "license": "MIT",
-  "homepage": "https://ask.xverum.com",
+  "homepage": "https://ask.xverum.com/docs/mcp-server",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Xverum-LLC/xverum-mcp.git"
