@@ -160,26 +160,30 @@ enrich_person_xverum("482910371")
 
 ## `predict_job_change_xverum`
 
-Score how likely a professional is to change roles — before they declare they are
-open to work. Returns a weekly-refreshed probability score. Use cases: outreach
-timing in recruiting, deal-risk alerts on champions in sales, and talent-movement
-analysis. Powered by Next Move Signal. 10 credits per score.
+Predict how likely one person is to change role, before they declare they are open
+to work — for outreach timing in recruiting, champion-departure alerts in sales, and
+talent-movement analysis. 
+
+
 
 ### Parameters
 
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `id` | string | yes | — | Numeric profile id from a `search_people_xverum` result |
+| Parameter | Location | Required | Description |
+|-----------|----------|----------|-------------|
+| `id` | path | yes | Opaque profile id, e.g. from `ProfileCard.id` |
 
 ### Returns
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Profile id |
-| `score` | number | Job-change probability score |
-| `credits_used` | integer | Credits deducted (10) |
-| `credits_remaining` | integer | Credits remaining after this call |
+| `has_prediction` | boolean | Whether we hold a prediction for this person. Branch on this. |
+| `score` | number \| null | Likelihood of a role change, `0.0`–`1.0`; higher is more likely. `null` when `has_prediction` is `false` |
+| `signal_date` | string \| null | Date the evidence behind the score was observed, `YYYY-MM-DD`. `null` when `has_prediction` is `false` |
+| `reasoning` | object[] | Contributing factors, most significant first; `[]` when none were recorded |
+| `credits_used` | integer | Billable credits reported for this call (10; `0` with no prediction, and `0` on a deduped retry) |
+| `credits_remaining` | integer | Credits left after this call |
 | `request_id` | string | Correlation id |
+| `usage_notice` | object \| null | As on the other endpoints |
 
 ### Example
 
@@ -189,11 +193,29 @@ predict_job_change_xverum("482910371")
 
 ```json
 {
-  "id": "482910371",
-  "score": 0.73,
+  "has_prediction": true,
+  "score": 0.87,
+  "signal_date": "2026-05-09",
+  "reasoning": [
+    { "category": "tenure_in_role", "intensity": "high", "weight": 0.31, "rank": 1 },
+    { "category": "company_signal", "intensity": "medium", "weight": 0.12, "rank": 2 }
+  ],
   "credits_used": 10,
-  "credits_remaining": 4985,
-  "request_id": "a1b2c3d4e5f60789"
+  "credits_remaining": 4986,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+No prediction — the common case, and free:
+
+```json
+{
+  "has_prediction": false,
+  "score": null,
+  "signal_date": null,
+  "reasoning": [],
+  "credits_used": 0,
+  "credits_remaining": 4996,
+  "request_id": "1a2b3c4d5e6f7081"
 }
 ```
 

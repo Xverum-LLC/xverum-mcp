@@ -132,6 +132,12 @@ Senior Python developers with Kubernetes in Seattle
 Get profile id 401241903
 ```
 
+**Example 3: Predict job changes** (`predict_job_change_xverum`)
+```
+Use predict_job_change_xverum for profile ID 271961733.
+```
+
+
 ## Credits
 
 1 credit per search result · 4 credits per full profile · 10 credits per job-change score.
