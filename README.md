@@ -151,6 +151,7 @@ Each response reports `credits_used` and `credits_remaining`.
 - [Tools](docs/tools.md) — parameters, return shapes, and worked examples.
 - [Authentication](docs/authentication.md) — OAuth sign-in and what we store.
 - [Troubleshooting](docs/troubleshooting.md) — error codes and what to do about them.
+- [Versioning](docs/versioning.md) — versioning scheme and deprecation policy.
 
 ## Privacy & security
 

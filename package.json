@@ -2,9 +2,6 @@
   "name": "@xverum/mcp",
   "version": "1.0.1",
   "mcpName": "com.xverum/mcp",
-"publishConfig": {
-  "access": "public"
-},
   "description": "Stdio MCP proxy for the hosted Xverum MCP server (people search & enrichment, 750M profiles)",
   "type": "module",
   "bin": {
