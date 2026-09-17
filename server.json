@@ -3,7 +3,7 @@
   "name": "com.xverum/mcp",
   "title": "Ask Xverum",
   "description": "Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.",
-  "version": "2.2.2",
+  "version": "2.2.7",
   "websiteUrl": "https://ask.xverum.com/docs/mcp-server",
   "repository": {
     "url": "https://github.com/Xverum-LLC/xverum-mcp",
