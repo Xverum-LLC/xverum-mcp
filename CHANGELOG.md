@@ -5,6 +5,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 Maintained by Erez Bilu (erez.bilu@xverum.com).
 
+## [2.2.7] — 2026-09-17
+
+### Changed
+- Registry version bumped to 2.2.7 in server.json to re-align with MCP Registry after intermediate patches (2.2.3–2.2.6) were published without tagged releases
+
 ## [2.2.2] — 2026-09-14
 
 ### Added
