@@ -8,7 +8,35 @@ Maintained by Erez Bilu (erez.bilu@xverum.com).
 ## [2.2.7] — 2026-09-17
 
 ### Changed
-- Registry version bumped to 2.2.7 in server.json to re-align with MCP Registry after intermediate patches (2.2.3–2.2.6) were published without tagged releases
+- Registry version in `server.json` bumped to 2.2.7 to re-align with MCP Registry
+
+## [2.2.6] — 2026-09-16
+
+### Added
+- `CHANGELOG.md` (Keep a Changelog format) covering all releases from 0.1.0 onward
+- `docs/versioning.md` — versioning scheme (semver) and 90-day deprecation policy
+- Linked versioning doc from README
+
+### Removed
+- Stale `publishConfig` block from `package.json`
+
+## [2.2.5] — 2026-09-15
+
+### Changed
+- `docs/tools.md` predict_job_change section rewritten with accurate response schema (`has_prediction`, `score`, `signal_date`, `reasoning`)
+- Added no-prediction example (free, `credits_used: 0`)
+- Added Example 3 (predict job changes) to README
+- Registry version aligned with repo `server.json`
+
+## [2.2.4] — 2026-09-14
+
+### Changed
+- npm package version in `server.json` updated from `1.0.0` to `1.0.1`
+
+## [2.2.3] — 2026-09-14
+
+### Fixed
+- `invalid_api_key` error row removed from `docs/authentication.md` (OAuth only, no API keys)
 
 ## [2.2.2] — 2026-09-14
 
