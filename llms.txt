@@ -1,6 +1,7 @@
 # Xverum
 
-> People search, professional profile enrichment, and job-change prediction for AI agents.
+> Find and enrich the right people from 750M professional profiles. Plain-English search and Next Move Signal job-change
+  scores for sourcing candidates, lead lists, and market mapping.
 
 Xverum provides a hosted MCP server that lets AI assistants search 750M professional profiles, enrich individual records with full work history and education, and predict which professionals are likely to change jobs next. Built for recruiting, talent sourcing, sales prospecting, lead generation, and market research.
 
