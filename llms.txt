@@ -1,9 +1,9 @@
 # Xverum
 
-> Find and enrich the right people from 750M professional profiles. Plain-English search and Next Move Signal job-change
-  scores for sourcing candidates, lead lists, and market mapping.
+> Find and enrich people and companies from 750M professional profiles and 54M company records. Plain-English search and Next Move Signal job-change
+  scores for sourcing candidates, lead lists, market mapping, and company research.
 
-Xverum provides a hosted MCP server that lets AI assistants search 750M professional profiles, enrich individual records with full work history and education, and predict which professionals are likely to change jobs next. Built for recruiting, talent sourcing, sales prospecting, lead generation, and market research.
+Xverum provides a hosted MCP server that lets AI assistants search 750M professional profiles and 54M company records, enrich individual people and company records, and predict which professionals are likely to change jobs next. Built for recruiting, talent sourcing, sales prospecting, lead generation, market research, and company intelligence.
 
 ## MCP Server
 
@@ -29,6 +29,16 @@ Score how likely a professional is to change roles before they declare they are 
 
 Parameters: id (string, required).
 
+### search_company_xverum
+Find companies from a natural-language description. Returns a ranked page of company summary cards. Use cases: market mapping, account targeting, firmographic research, competitor analysis. Coverage: 54M company records. Cost: 1 credit per result.
+
+Parameters: query (string, required), page (integer, optional), page_size (integer, optional, 1-100).
+
+### enrich_company_xverum
+Pull the full record for one company by id: description, industry, size, location, and key details. Use after search_company_xverum to complete an account, prospect, or research record. Cost: 4 credits per full company.
+
+Parameters: id (string, required).
+
 ## Connect
 
 Claude Code:
@@ -49,6 +59,8 @@ JSON config (Cursor, VS Code, other clients):
 - search_people_xverum: 1 credit per result
 - enrich_person_xverum: 4 credits per profile
 - predict_job_change_xverum: 10 credits per score
+- search_company_xverum: 1 credit per result
+- enrich_company_xverum: 4 credits per company
 - Every response includes credits_used and credits_remaining
 
 ## Links

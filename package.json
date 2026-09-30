@@ -1,8 +1,8 @@
 {
   "name": "@xverum/mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "mcpName": "com.xverum/mcp",
-  "description": "Stdio MCP proxy for the hosted Xverum MCP server (people search & enrichment, 750M profiles)",
+  "description": "Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.",
   "type": "module",
   "bin": {
     "xverum-mcp": "bin/xverum-mcp.js"
@@ -18,13 +18,18 @@
     "model-context-protocol",
     "xverum",
     "people-search",
+    "company-search",
     "enrichment",
     "profile-enrichment",
+    "company-enrichment",
     "lead-generation",
     "candidate-sourcing",
     "sales-intelligence",
     "recruiting",
-    "ai-agent"		
+    "market-research",
+    "job-change-prediction",
+    "next-move-signal",
+    "ai-agent"
   ],
   "license": "MIT",
   "homepage": "https://ask.xverum.com/docs/mcp-server",

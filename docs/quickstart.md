@@ -15,7 +15,7 @@ the MCP server connects an account, it does not create one.
 claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 ```
 
-Verify with `/mcp` — you should see `xverum` with three tools.
+Verify with `/mcp` — you should see `xverum` with five tools.
 
 ### Cursor
 
@@ -82,12 +82,26 @@ Or predict who's likely to move:
 
 - *"Score these candidates — who's most likely to change jobs?"*
 
+## 4. Ask for companies
+
+Describe the companies you're looking for:
+
+- *"Cybersecurity companies in Germany."*
+- *"Nonprofit organizations working on climate change in California."*
+- *"SaaS companies in New York."*
+
+Then drill into any result:
+
+- *"Get the full record for that company."*
+- *"Tell me more about the first one."*
+
 ## What it costs
 
-Calls draw down your account's credit balance: **1 credit per search result**,
-**4 credits per full profile enrichment**, and **10 credits per job-change
-prediction score**. Each response reports `credits_used` and
-`credits_remaining` so your assistant can tell you what a query cost.
+Calls draw down your account's credit balance: **1 credit per search result**
+(people or companies), **4 credits per full profile or company enrichment**,
+and **10 credits per job-change prediction score**. Each response reports
+`credits_used` and `credits_remaining` so your assistant can tell you what a
+query cost.
 
 ## Next
 

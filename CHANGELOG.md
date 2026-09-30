@@ -5,10 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 Maintained by Erez Bilu (erez.bilu@xverum.com).
 
+## [2.3.0] — 2026-09-29
+
+### Added
+- `search_company_xverum` tool: search 54M company records with a natural-language query. Returns ranked company summary cards with id, name, headquarters, industry, employee count, website and founding year. Cost: 1 credit per result
+- `enrich_company_xverum` tool: get the full record for one company by id — description, specialties, office locations, organisation type and follower count. Cost: 4 credits per company
+- Company tool sections added to `docs/tools.md`, `llms.txt` and `README.md`
+- Examples 4 and 5 (company search and company enrichment) added to README
+
+### Changed
+- Server now exposes five tools (was three)
+- `server.json` version bumped to 2.3.0
+
 ## [2.2.7] — 2026-09-17
 
 ### Changed
-- Registry version in `server.json` bumped to 2.2.7 to re-align with MCP Registry
+- Registry version bumped to 2.2.7 in server.json to re-align with MCP Registry after intermediate patches (2.2.3–2.2.6) were published without tagged releases
 
 ## [2.2.6] — 2026-09-16
 

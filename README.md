@@ -45,7 +45,7 @@ claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 <details>
 <summary><b>Claude Code — verify</b></summary>
 
-Verify with `/mcp` — you should see `xverum` with three tools.
+Verify with `/mcp` — you should see `xverum` with five tools.
 
 </details>
 
@@ -117,6 +117,8 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 | `search_people_xverum` | Find people matching a natural-language description  – candidates, prospects, or decision-makers. Returns ranked profiles. | 1 credit per result |
 | `enrich_person_xverum` | Pull the full profile for one person by id: description, work history, education, and seniority. | 4 credits per full profile |
 | `predict_job_change_xverum` | Score how likely a person is to change roles  – before they declare it. Refreshed weekly. | 10 credits per score |
+| `search_company_xverum` | Find companies from a natural-language description. Returns a ranked page of company summary cards. | 1 credit per result |
+| `enrich_company_xverum` | Pull the full record for one company. | 4 credits per full company |
 
 Full reference: [docs/tools.md](docs/tools.md).
 
@@ -137,10 +139,23 @@ Get profile id 401241903
 Use predict_job_change_xverum for profile ID 271961733.
 ```
 
+**Example 4: Search companies** (`search_company_xverum`)
+```
+cybersecurity companies in Germany
+```
+```
+nonprofit organizations working on climate change in California
+```
+
+**Example 5: Enrich a company** (`enrich_company_xverum`)
+```
+Get company id 88673718
+```
+
 
 ## Credits
 
-1 credit per search result · 4 credits per full profile · 10 credits per job-change score.
+1 credit per search result · 4 credits per full profile · 10 credits per job-change score · 1 credit per company search result · 4 credits per full company.
 Each response reports `credits_used` and `credits_remaining`.
 [See plans and pricing](https://ask.xverum.com/pricing)
 
@@ -156,7 +171,7 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Privacy & security
 
 - Authentication is handled via OAuth — no API keys are stored or transmitted in config files.
-- The server exposes exactly the three tools listed above. It cannot write, delete, or take
+- The server exposes exactly the five tools listed above. It cannot write, delete, or take
   any action on your behalf.
 - Profile data comes from Xverum's licensed professional-profiles dataset.
 
