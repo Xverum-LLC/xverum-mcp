@@ -2,6 +2,9 @@
   "name": "@xverum/mcp",
   "version": "1.0.2",
   "mcpName": "com.xverum/mcp",
+  "publishConfig": {
+  "access": "public"
+  },  
   "description": "Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.",
   "type": "module",
   "bin": {
