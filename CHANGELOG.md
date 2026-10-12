@@ -5,7 +5,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 Maintained by Erez Bilu (erez.bilu@xverum.com).
 
-## [2.3.0] — 2026-09-29
+## [2.3.1] — 2026-09-29
 
 ### Added
 - `search_company_xverum` tool: search 54M company records with a natural-language query. Returns ranked company summary cards with id, name, headquarters, industry, employee count, website and founding year. Cost: 1 credit per result
