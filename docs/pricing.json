@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schema.org/PriceSpecification",
+  "product": "Ask Xverum",
+  "product_url": "https://ask.xverum.com/",
+  "pricing_url": "https://ask.xverum.com/pricing",
+  "currency": "USD",
+  "updated": "2026-10-29",
+  "unit": "credit",
+  "unit_costs": [
+    { "operation": "search_people_xverum",         "credits": 1,  "note": "per result" },
+    { "operation": "enrich_person_xverum",          "credits": 4,  "note": "per full profile" },
+    { "operation": "predict_job_change_xverum",     "credits": 10, "note": "per score, people only" },
+    { "operation": "search_company_xverum",         "credits": 1,  "note": "per result" },
+    { "operation": "enrich_company_xverum",         "credits": 4,  "note": "per full company" }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "is_free": true,
+      "price_monthly": 0,
+      "credits_monthly": 200,
+      "credit_reset": "monthly",
+      "extra_credits_per_1000": 39,
+      "requires_credit_card": false,
+      "features": [
+        "People and company search",
+        "Next Move Signal",
+        "Documentation access"
+      ]
+    },
+    {
+      "name": "Starter",
+      "is_free": false,
+      "price_monthly": 49,
+      "price_annual_per_month": 44,
+      "price_annual_total": 528,
+      "credits_monthly": 2000,
+      "credits_annual_total": 24000,
+      "credit_reset": "monthly",
+      "credits_annual_validity": "12 months",
+      "cost_per_1000_credits": 24.50,
+      "extra_credits_per_1000": 31,
+      "features": [
+        "Everything in Free",
+        "Email support"
+      ]
+    },
+    {
+      "name": "Growth",
+      "is_free": false,
+      "price_monthly": 199,
+      "price_annual_per_month": 179,
+      "price_annual_total": 2148,
+      "credits_monthly": 9000,
+      "credits_annual_total": 108000,
+      "credit_reset": "monthly",
+      "credits_annual_validity": "12 months",
+      "cost_per_1000_credits": 22.11,
+      "extra_credits_per_1000": 28,
+      "features": [
+        "Everything in Starter",
+        "Priority technical support"
+      ]
+    },
+    {
+      "name": "Pro",
+      "is_free": false,
+      "recommended": true,
+      "price_monthly": 750,
+      "price_annual_per_month": 675,
+      "price_annual_total": 8100,
+      "credits_monthly": 36000,
+      "credits_annual_total": 432000,
+      "credit_reset": "monthly",
+      "credits_annual_validity": "12 months",
+      "cost_per_1000_credits": 20.83,
+      "extra_credits_per_1000": 26,
+      "features": [
+        "Everything in Growth",
+        "Dedicated account manager"
+      ]
+    },
+    {
+      "name": "Enterprise",
+      "is_free": false,
+      "custom_pricing": true,
+      "credits_monthly": "unlimited",
+      "features": [
+        "Everything in Pro",
+        "Volume discounts",
+        "Custom rate limits",
+        "6-year historical data access",
+        "Dedicated support",
+        "Custom integrations"
+      ],
+      "contact": "agentic.support@xverum.com"
+    }
+  ]
+}
