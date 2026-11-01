@@ -45,7 +45,7 @@ claude mcp add --transport http xverum https://mcp.xverum.com/mcp
 <details>
 <summary><b>Claude Code — verify</b></summary>
 
-Verify with `/mcp` — you should see `xverum` with five tools.
+Verify with `/mcp` — you should see `xverum` with nine tools.
 
 </details>
 
@@ -119,6 +119,10 @@ Also in the MCP Registry as `com.xverum/mcp`, so many agents can add it by name.
 | `predict_job_change_xverum` | Score how likely a person is to change roles  – before they declare it. Refreshed weekly. | 10 credits per score |
 | `search_company_xverum` | Find companies from a natural-language description. Returns a ranked page of company summary cards. | 1 credit per result |
 | `enrich_company_xverum` | Pull the full record for one company. | 4 credits per full company |
+| `get_email_xverum` | Get the verified business email for one person. Charged only when found. | 2 credits per person |
+| `get_phone_xverum` | Get the verified phone number for one person. Charged only when found. | 6 credits per person |
+| `find_person_by_email_xverum` | Find the person behind a work email address. Returns a profile summary with id. | 1 credit per match |
+| `find_person_by_phone_xverum` | Find the person behind a phone number. Returns a profile summary with id. | 1 credit per match |
 
 Full reference: [docs/tools.md](docs/tools.md).
 
@@ -152,10 +156,30 @@ nonprofit organizations working on climate change in California
 Get company id 88673718
 ```
 
+**Example 6: Get email** (`get_email_xverum`)
+```
+Get the email for profile id 482910371
+```
+
+**Example 7: Get phone** (`get_phone_xverum`)
+```
+Get the phone number of prospect 482910371 before a call
+```
+
+**Example 8: Find person by email** (`find_person_by_email_xverum`)
+```
+Who is jane.doe@example.com?
+```
+
+**Example 9: Find person by phone** (`find_person_by_phone_xverum`)
+```
+Who is +12025550123
+```
+
 
 ## Credits
 
-1 credit per search result · 4 credits per full profile · 10 credits per job-change score · 1 credit per company search result · 4 credits per full company.
+1 credit per search result · 4 credits per full profile · 10 credits per job-change score · 1 credit per company search result · 4 credits per full company · 2 credits per email (only when found) · 6 credits per phone (only when found) · 1 credit per email-lookup match · 1 credit per phone-lookup match.
 Each response reports `credits_used` and `credits_remaining`.
 [See plans and pricing](https://ask.xverum.com/pricing)
 
@@ -171,7 +195,7 @@ Each response reports `credits_used` and `credits_remaining`.
 ## Privacy & security
 
 - Authentication is handled via OAuth — no API keys are stored or transmitted in config files.
-- The server exposes exactly the five tools listed above. It cannot write, delete, or take
+- The server exposes exactly the nine tools listed above. It cannot write, delete, or take
   any action on your behalf.
 - Profile data comes from Xverum's licensed professional-profiles dataset.
 

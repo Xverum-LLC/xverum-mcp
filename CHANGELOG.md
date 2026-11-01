@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 Maintained by Erez Bilu (erez.bilu@xverum.com).
 
+## [2.4.0] — 2026-11-01
+
+### Added
+- `get_email_xverum` tool: get the verified business email for one person by id. Cost: 2 credits when found, 0 when not found
+- `get_phone_xverum` tool: get the verified phone number for one person by id. Returns up to 3 numbers in E.164 format. Cost: 6 credits when found, 0 when not found
+- `find_person_by_email_xverum` tool: find the person behind a work email address. Returns profile summary with id. Cost: 1 credit per match, 0 when no match
+- `find_person_by_phone_xverum` tool: find the person behind a phone number. Returns profile summary with id. Cost: 1 credit per match, 0 when no match
+- New tool sections added to `docs/tools.md`, `llms.txt` and `README.md`
+- `pricing.json` updated with new tool costs
+- Examples 6–9 added to README
+
+### Changed
+- Server now exposes nine tools (was five)
+- `server.json` version bumped to 2.4.0
+
 ## [2.3.1] — 2026-09-29
 
 ### Added

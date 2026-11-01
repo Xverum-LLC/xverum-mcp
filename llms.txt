@@ -39,6 +39,26 @@ Pull the full record for one company by id: description, industry, size, locatio
 
 Parameters: id (string, required).
 
+### get_email_xverum
+Get the verified business email address for one person by id. Returns only business addresses — no personal mailboxes. Charged only when an email is held (2 credits); free when nothing is found. Use after search_people_xverum to get contact information for a candidate or prospect. Cost: 2 credits when found, 0 when not found.
+
+Parameters: id (string, required).
+
+### get_phone_xverum
+Get the verified phone number for one person by id. Returns up to 3 numbers in E.164 international format, best first. Charged only when a phone is held (6 credits); free when nothing is found. Use after search_people_xverum to get direct-dial contact information before a call. Cost: 6 credits when found, 0 when not found.
+
+Parameters: id (string, required).
+
+### find_person_by_email_xverum
+Find the person behind a work email address. Returns matching profile summaries with person ids. Exact match only — send a whole work email address. 1 credit per person found, free when there is no match. Pass the returned id to enrich_person_xverum for the full profile. Cost: 1 credit per match, 0 when not found.
+
+Parameters: email (string, required).
+
+### find_person_by_phone_xverum
+Find the person behind a phone number. Returns matching profile summaries with person ids. Exact match only — send the whole phone number with its country code (must start with + or 00). 1 credit per person found, free when there is no match. Pass the returned id to enrich_person_xverum for the full profile. Cost: 1 credit per match, 0 when not found.
+
+Parameters: phone (string, required).
+
 ## Connect
 
 Claude Code:
@@ -61,6 +81,10 @@ JSON config (Cursor, VS Code, other clients):
 - predict_job_change_xverum: 10 credits per score
 - search_company_xverum: 1 credit per result
 - enrich_company_xverum: 4 credits per company
+- get_email_xverum: 2 credits per person (only when found)
+- get_phone_xverum: 6 credits per person (only when found)
+- find_person_by_email_xverum: 1 credit per match (free when no match)
+- find_person_by_phone_xverum: 1 credit per match (free when no match)
 - Every response includes credits_used and credits_remaining
 
 ## Links

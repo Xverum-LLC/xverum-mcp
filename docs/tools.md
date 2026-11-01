@@ -1,6 +1,6 @@
 # Tools reference
 
-The server exposes exactly five tools. All are read-only.
+The server exposes exactly nine tools. All are read-only.
 
 ---
 
@@ -377,6 +377,333 @@ enrich_company_xverum("88673718")
   "credits_used": 4,
   "credits_remaining": 1517,
   "request_id": "7e2f3a8b9c1d4e05"
+}
+```
+
+---
+
+## `get_email_xverum`
+
+Get the verified business email address for one person by id. Use after
+`search_people_xverum` to complete a candidate or prospect record with
+contact information.
+
+Only business addresses are returned — personal mailboxes (Gmail, Outlook
+and the like) are not included.
+
+**You pay only when we hold one.** A person we hold nothing for returns
+`has_email: false` and is charged **0 credits**. Read `has_email` first:
+`false` is a complete answer, not a failure, and retrying it will not
+change the result.
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | yes | — | Numeric profile id from a `search_people_xverum` result |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `has_email` | boolean | Whether we hold a business email for this person. **Check this first.** |
+| `emails` | object[] | Every address we hold; `[]` when `has_email` is `false` |
+| `emails[].email` | string | The address, lowercased |
+| `emails[].confidence` | string \| null | The source's confidence in the address, e.g. `High`; `null` if none |
+| `emails[].last_checked` | string \| null | When the address was last checked (`YYYY-MM-DD`); `null` if unknown |
+| `credits_used` | integer | Credits deducted — `2` when an email is held, `0` when it is not |
+| `credits_remaining` | integer | Credits remaining after this call |
+| `request_id` | string | Correlation id |
+| `usage_notice` | object \| null | As on the other endpoints |
+
+The charge is deduped per `(api-key, id)` within a short window: a repeat
+fetch is free.
+
+### Example
+
+```
+get_email_xverum("482910371")
+```
+
+Email found (2 credits):
+
+```json
+{
+  "has_email": true,
+  "emails": [
+    { "email": "jane.doe@example.com", "confidence": "High", "last_checked": "2026-09-01" }
+  ],
+  "credits_used": 2,
+  "credits_remaining": 4998,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+No email held (free):
+
+```json
+{
+  "has_email": false,
+  "emails": [],
+  "credits_used": 0,
+  "credits_remaining": 5000,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+---
+
+## `get_phone_xverum`
+
+Get the verified phone number for one person by id. Use after
+`search_people_xverum` to get direct-dial contact information for a
+prospect before a call.
+
+Returns up to 3 numbers in E.164 international format, best first. A
+phone number is returned only when its country is known from the number
+itself or from the person's location.
+
+**You pay only when we hold one.** A person we hold nothing for returns
+`has_phone: false` and is charged **0 credits**. Read `has_phone` first:
+`false` is a complete answer, not a failure, and retrying it will not
+change the result.
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | yes | — | Numeric profile id from a `search_people_xverum` result |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `has_phone` | boolean | Whether we hold a phone for this person. **Check this first.** |
+| `phones` | object[] | Up to 3 numbers, best first; `[]` when `has_phone` is `false` |
+| `phones[].phone` | string | The number in international (E.164) form |
+| `phones[].extension` | string | The extension; `""` when there is none |
+| `phones[].line_type` | string \| null | `mobile`, `fixed_line` and so on; `null` if unknown |
+| `phones[].country` | string \| null | The number's country (ISO 3166-1 alpha-2); `null` if non-geographic |
+| `phones[].country_source` | string | How `country` was decided: `number` (from the number's own country code) or `person_country` (from the person's location) |
+| `credits_used` | integer | Credits deducted — `6` when a phone is held, `0` when it is not |
+| `credits_remaining` | integer | Credits remaining after this call |
+| `request_id` | string | Correlation id |
+| `usage_notice` | object \| null | As on the other endpoints |
+
+The charge is deduped per `(api-key, id)` within a short window: a repeat
+fetch is free.
+
+### Example
+
+```
+get_phone_xverum("482910371")
+```
+
+Phone found (6 credits):
+
+```json
+{
+  "has_phone": true,
+  "phones": [
+    {
+      "phone": "+12025550123",
+      "extension": "",
+      "line_type": "mobile",
+      "country": "US",
+      "country_source": "number"
+    }
+  ],
+  "credits_used": 6,
+  "credits_remaining": 4994,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+No phone held (free):
+
+```json
+{
+  "has_phone": false,
+  "phones": [],
+  "credits_used": 0,
+  "credits_remaining": 5000,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+---
+
+## `find_person_by_email_xverum`
+
+Find the person behind a work email address. Returns the matching profile
+summary with a person id, or no match. Use to identify who sent an
+inbound demo request, then pass the id to `enrich_person_xverum` for
+the full profile.
+
+**Exact match only.** Send a whole work email address
+(`jane.doe@acme.com`). Personal mailboxes are not matched.
+
+**You pay only for people found.** No match returns `results: []` and is
+charged **0 credits**. 1 credit per person returned.
+
+### Parameters
+
+| Parameter | Type | Required | Constraints | Description |
+|-----------|------|----------|-------------|-------------|
+| `email` | string | yes | 3–320 chars | A whole work email address, matched exactly |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `results` | object[] | People who hold this email, at most 10; `[]` when there is no match |
+| `results[].id` | string | Profile id — pass to `enrich_person_xverum` or other tools |
+| `results[].full_name` | string | Full name |
+| `results[].headline` | string \| null | Profile headline |
+| `results[].location` | string \| null | Location |
+| `results[].company_name` | string \| null | Current company |
+| `results[].position` | string \| null | Current position |
+| `results[].industry` | string \| null | Industry |
+| `results[].social_url` | string \| null | Public profile URL |
+| `results[].evidence_summary` | string | How recently the profile was verified |
+| `more` | boolean | `true` when more people hold this address than were returned (e.g. a shared `info@…` address). There is no paging |
+| `credits_used` | integer | Credits deducted — `1` per person returned, `0` when there is no match |
+| `credits_remaining` | integer | Credits remaining after this call |
+| `request_id` | string | Correlation id |
+| `message` | string | Only when there is no match: guidance to show the user |
+| `usage_notice` | object \| null | As on the other endpoints |
+
+A lookup is not deduped: repeating it is charged again.
+
+### Example
+
+```
+find_person_by_email_xverum("jane.doe@example.com")
+```
+
+Match found (1 credit):
+
+```json
+{
+  "results": [
+    {
+      "id": "a1b2c3d4",
+      "full_name": "Jane Doe",
+      "headline": "VP Sales at Acme",
+      "location": "Washington, DC, United States",
+      "company_name": "Acme",
+      "position": "VP Sales",
+      "industry": "Software Development",
+      "social_url": "https://www.linkedin.com/in/jane-doe",
+      "evidence_summary": "Verified last 30 days"
+    }
+  ],
+  "more": false,
+  "credits_used": 1,
+  "credits_remaining": 4999,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+No match (free):
+
+```json
+{
+  "results": [],
+  "more": false,
+  "credits_used": 0,
+  "credits_remaining": 5000,
+  "request_id": "1a2b3c4d5e6f7081",
+  "message": "No one found for that email address or phone number."
+}
+```
+
+---
+
+## `find_person_by_phone_xverum`
+
+Find the person behind a phone number. Returns the matching profile
+summary with a person id, or no match. Use to match a phone number in
+your CRM to a professional profile, then pass the id to
+`enrich_person_xverum` for the full profile.
+
+**Exact match only.** Send the whole phone number **with its country
+code** (`+972 50 254 4777` or `00972502544777`; spaces, dashes and
+brackets are fine). A number without its country code is rejected — the
+same digits are a different number in each country.
+
+**You pay only for people found.** No match returns `results: []` and is
+charged **0 credits**. 1 credit per person returned.
+
+### Parameters
+
+| Parameter | Type | Required | Constraints | Description |
+|-----------|------|----------|-------------|-------------|
+| `phone` | string | yes | 4–40 chars, must start with `+` or `00` | A whole phone number with its country code, matched exactly |
+
+### Returns
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `results` | object[] | People who hold this number, at most 10; `[]` when there is no match |
+| `results[].id` | string | Profile id — pass to `enrich_person_xverum` or other tools |
+| `results[].full_name` | string | Full name |
+| `results[].headline` | string \| null | Profile headline |
+| `results[].location` | string \| null | Location |
+| `results[].company_name` | string \| null | Current company |
+| `results[].position` | string \| null | Current position |
+| `results[].industry` | string \| null | Industry |
+| `results[].social_url` | string \| null | Public profile URL |
+| `results[].evidence_summary` | string | How recently the profile was verified |
+| `more` | boolean | `true` when more people hold this number than were returned (e.g. a switchboard number). There is no paging |
+| `credits_used` | integer | Credits deducted — `1` per person returned, `0` when there is no match |
+| `credits_remaining` | integer | Credits remaining after this call |
+| `request_id` | string | Correlation id |
+| `message` | string | Only when there is no match: guidance to show the user |
+| `usage_notice` | object \| null | As on the other endpoints |
+
+A lookup is not deduped: repeating it is charged again.
+
+### Example
+
+```
+find_person_by_phone_xverum("+12025550123")
+```
+
+Match found (1 credit):
+
+```json
+{
+  "results": [
+    {
+      "id": "a1b2c3d4",
+      "full_name": "Jane Doe",
+      "headline": "VP Sales at Acme",
+      "location": "Washington, DC, United States",
+      "company_name": "Acme",
+      "position": "VP Sales",
+      "industry": "Software Development",
+      "social_url": "https://www.linkedin.com/in/jane-doe",
+      "evidence_summary": "Verified last 30 days"
+    }
+  ],
+  "more": false,
+  "credits_used": 1,
+  "credits_remaining": 4999,
+  "request_id": "1a2b3c4d5e6f7081"
+}
+```
+
+No match (free):
+
+```json
+{
+  "results": [],
+  "more": false,
+  "credits_used": 0,
+  "credits_remaining": 5000,
+  "request_id": "1a2b3c4d5e6f7081",
+  "message": "No one found for that email address or phone number."
 }
 ```
 
