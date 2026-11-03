@@ -3,7 +3,7 @@
   "name": "com.xverum/mcp",
   "title": "Ask Xverum",
   "description": "Find and enrich people from 750M professional profiles, with Next Move Signal job-change scores.",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "websiteUrl": "https://ask.xverum.com/docs/mcp-server",
   "repository": {
     "url": "https://github.com/Xverum-LLC/xverum-mcp",
@@ -20,7 +20,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@xverum/mcp",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "transport": {
         "type": "stdio"
       }
